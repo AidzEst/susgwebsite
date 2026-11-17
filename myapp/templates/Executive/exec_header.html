@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silliman University Website</title>
+    <style>
+        * {
+    font-family: 'Montserrat', sans-serif;
+        }
+
+        #header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        #header-text {
+            background-image: linear-gradient(to right, #f0e3bb, #498347, #546c88);
+            height: 85px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        #su-text {
+            display: flex;
+            flex-direction: column;
+            padding-left: 80px;
+        }
+
+        #su-text p {
+            text-align: center;
+            margin: -3px 0;
+            line-height: 1.1;
+            color: #ffffff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        #su-title {
+            font-size: 26px;
+        }
+
+        #su-government {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #su-text .bold {
+            font-weight: bold;
+        }
+
+        #logo-box {
+            display: flex;
+            align-items: right;
+            margin-right: 20px;
+        }
+        #logo-box img {
+            height: 60px;
+            width: auto;
+            margin-right: 10px;
+        }
+
+        #nav-bar {
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            background-image: linear-gradient(to right,#dbdbdb,#d6d6d6);
+            padding: 10px;
+            padding-left: 20px;
+            gap: 50px;
+            list-style-type: none;
+            text-decoration: none;
+            height: 22px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        #nav-bar li a {
+            color: #000000;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+    <header id="header">
+            
+    <div id = "header-text">
+        <div id = "su-text">
+            <p id = "su-title">SILLIMAN UNIVERSITY</p>
+            <p id = "su-government">STUDENT GOVERNMENT</p>
+        </div>
+
+        <div id = "logo-box">
+            <a href="#"><img src="{% static 'Images/Logo/SUSG.png' %}" alt="Executive Logo" class = "su-logo"></a>
+            <a href="#"><img src="{% static 'Images/Logo/Assembly.png' %}" alt="Assembly Logo" class = "su-logo"></a>
+            <a href="#"><img src="{% static 'Images/Logo/Judiciary.png' %}" alt="Judiciary Logo" class = "su-logo"></a>
+        </div>
+    </div>
+    <div id = "nav-bar">
+        <li><a href="{% url 'exec_home' %}">HOME</a></li>
+        <li><a href="{% url 'constitution' %}">CONSTITUTION</a></li>
+        <li><a href="{% url 'chairpersons' %}">CHAIRPERSONS</a></li>
+        <li><a href="#">CALENDAR</a></li>
+        <li><a href="#">ANNOUNCEMENTS   </a></li>    
+        <li><a href="#">CONTACT US</a></li>
+    </div>
+
+    </header>
+    {% block content %}{% endblock %}
+</body>
